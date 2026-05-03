@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Test Product Upload</h2>
+    <form id="uploadForm">
+        <input type="text" id="token" placeholder="Paste Bearer Token Here" required style="width: 100%; margin-bottom: 10px;"><br>
+        
+        <input type="text" name="nom_produit" value="Test Product"><br>
+        <input type="text" name="description" value="A cool test item"><br>
+        <input type="number" name="prix" value="450"><br>
+        <input type="number" name="qte_dispo" value="3"><br>
+        <input type="text" name="type_id" value="35307de7-8b01-481c-9d39-408a3561c092"><br>
+        <input type="text" name="magasin_id" value="052b23c5-78bf-44f2-86ad-db7606230ab9"><br>
+        <input type="file" name="image" required><br><br>
+        <button type="submit">Upload Product</button>
+    </form>
+
+    <script>
+        document.getElementById('uploadForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const token = "eyJhbGciOiJFUzI1NiIsImtpZCI6ImNlMjQ0NjFlLTNhZTMtNDQ5OS1hNDJiLTdhOGFiMTYzZWUyNiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL295cHR0aHJ2aXhheWVueGVjZWtsLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiI3ZGM4Zjk2ZC0zYzljLTRhYzktOThlYS0zOGI2N2Y2OGNiODAiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzc2NTM4ODU0LCJpYXQiOjE3NzY1MzUyNTQsImVtYWlsIjoiYWN0aWY1QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWwiOiJhY3RpZjVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5vbV91dGlsaXNhdGV1ciI6IlRlc3RVc2VyIiwicGhvbmVfdmVyaWZpZWQiOmZhbHNlLCJzdWIiOiI3ZGM4Zjk2ZC0zYzljLTRhYzktOThlYS0zOGI2N2Y2OGNiODAifSwicm9sZSI6ImF1dGhlbnRpY2F0ZWQiLCJhYWwiOiJhYWwxIiwiYW1yIjpbeyJtZXRob2QiOiJwYXNzd29yZCIsInRpbWVzdGFtcCI6MTc3NjUzNTI1NH1dLCJzZXNzaW9uX2lkIjoiZDllOTY5YjQtYzAxNS00MDFmLThhMGUtODI5ZGU1YTI0M2UzIiwiaXNfYW5vbnltb3VzIjpmYWxzZX0.UTACC0h3GWofeaTE41sAxKp4ubxaj_NBGFq8hTI649XMgM_wdKY5JmG7pi7hoHpow7L40wW4lb81H5t-NzduDw";
+            const formData = new FormData(e.target);
+
+            const response = await fetch('http://localhost:5000/api/produit', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` },
+                body: formData
+            });
+            
+            const result = await response.json();
+            alert("Status: " + response.status + "\n\n" + JSON.stringify(result, null, 2));
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+api documentation
+
+(there is some i forgot like modifier profile client or change password or upload pfp u can find it in routes direct i will add them later)
+
+1 login :
+methode : post
+url : http://localhost:5000/api/auth/login
+headers : Content-Type : application/json
+body example : {
+  "email": "testiii@gmail.com",
+  "password": "password"
+}
+
+
+2 sign up client 
+methode : post
+url : http://localhost:5000/api/auth/register
+headers : Content-Type : application/json
+body example : 
+{
+  "email": "testiii2@gmail.com",
+  "password": "password",
+  "username": "TestUser",
+  "role": "client"
+}
+
+
+3 create magasin
+methode : post
+url : http://localhost:5000/api/magasin
+headers : Content-Type : application/json
+          Authorization : Bearer <client's token>
+body example : 
+{
+  "nom_magasin": "Mon Super Magasin",
+  "description": "Vente de produits divers"
+}
+
+
+4 valider magasin
+methode: patch
+url : http://localhost:5000/api/magasin/id magasin/statut
+headers : Content-Type : application/json
+          Authorization : Bearer <admin's token>
+body example : 
+{
+  "statut": "actif"
+}
+
+
+5 get all users
+methode : get
+url : http://localhost:5000/api/utilisateurs
+
+
+6 get specific user :
+methode : get
+url : http://localhost:5000/api/utilisateurs/id utilisateur
+
+7 get all clients
+
+methode : get
+url :http://localhost:5000/api/clients
+
+8 get specific client
+methode :get
+url : http://localhost:5000/api/clients/id client
+
+9 ban or suspend user
+(for now its just a change in status later ill work on making suspendu automatic)
+methode: patch
+url : http://localhost:5000/api/clients/id client/statut
+headers : Content-Type : application/json
+          Authorization : Bearer <admin's token>
+body example : 
+{
+  "statut": "suspendu"
+}
+
+
+10 get all shops 
+methode : get
+url : http://localhost:5000/api/magasin
+
+
+
+11 get a seller's shop
+methode : get
+url: http://localhost:5000/api/magasin/Vendeur id
+
+
+
+12 logout
+methode : get
+url : http://localhost:5000/api/auth/logout
+headers 
+ Authorization : Bearer <client's token>
+
+13 get profile client
+methode : get
+url : http://localhost:5000/api/clients/profile
+headers 
+ Authorization : Bearer <client's token>
+
+
+
+14 get produits
+methode : get
+url : http://localhost:5000/api/produit
+
+
+
+15 search produit
+methode : get 
+url : http://localhost:5000/api/produit?search= search term
+example
+http://localhost:5000/api/produits?search=chaussure&categorie=mode&page=1&limit=20
+
+16 get specific produit
+methode : get
+url :http://localhost:5000/api/produit/aee1ac18-ade1-4960-85bc-e16b98a5e0d9
+
+
+17 get cart 
+methode : get 
+url : http://localhost:5000/api/panier
+headers :
+ Authorization : Bearer <client's token>
+
+
+18 add to cart 
+methode : post 
+url : http://localhost:5000/api/panier
+headers :
+ Authorization : Bearer <client's token>
+body:
+example 
+{ "produit_id": "aee1ac18-ade1-4960-85bc-e16b98a5e0d9", "quantite": 2 }
+
+
+19 edit quantity of product in cart
+methode : put
+url : http://localhost:5000/api/panier/id produit
+headers :
+Authorization : Bearer <client's token>
+body example :
+{ "quantite": 4 }
+
+
+20 delete item from cart 
+
+methode : delete
+url : http://localhost:5000/api/panier/id produit
+headers :
+Authorization : Bearer <client's token>
+
+21 passer commande 
+methode : post
+url : http://localhost:5000/api/commande
+headers :
+Authorization : Bearer <client's token>
+example body
+{ "id_adrs": "3c879090-4636-4c45-b7de-75cda62bec76", "methode_paiement": "cash" }
+
+
+22 Commandes en cours
+methode : GET 
+url: http://localhost:5000/api/commande/en-cours
+headers : Authorization: Bearer <client token> 
+
+23  get historique 
+
+methode : GET 
+url :http://localhost:5000/api/commande/historique
+headers : Authorization: Bearer <client token>
+
+
+24 Get specific Commande
+methode : GET 
+url : http://localhost:5000/api/commande/:id
+headers : Authorization: Bearer < client token>
+
+
+
+25 Annuler Commande
+methode : PUT
+url :  http://localhost:5000/api/commandes/:id/annuler
+Authorization: Bearer <client token>
+
+26 Get Favoris
+methode : GET
+url: http://localhost:5000/api/favoris
+Authorization: Bearer <token>
+
+27 Add to Favoris
+methode : POST
+url : http://localhost:5000/api/favoris
+Authorization: Bearer <token>
+body : 
+{ "id_produit": "<uuid>" }
+
+28 Remove from Favoris
+methode : DELETE
+url :  http://localhost:5000/api/favoris/:id_produit
+Authorization: Bearer <token>
+
+
+
+29 Get Avis of Product
+methode : GET 
+url : http://localhost:5000/api/avis/produit/:id_produit
+
+30 Submit / Update Avis
+methode : POST
+url :  http://localhost:5000/api/avis
+Authorization: Bearer <token>
+body exemple 
+{ "id_produit": "<uuid>", "note": 4, "contenu": "Très bon produit." }
+
+
+31 Get Notifications
+methode : GET 
+url : http://localhost:5000/api/notification
+Authorization: Bearer <token>
+
+
+32 Mark  a Read
+methode : PUT 
+url : http://localhost:5000/api/notification/:id/lu
+Authorization: Bearer <token>
+
+
+33 Mark All as Read
+methode : PUT
+url :  http://localhost:5000/api/notification/lire-tout
+Authorization: Bearer <token>
+
+
+34 Signaler un Produit
+methode : POST
+url :  http://localhost:5000/api/signalement/produit
+Authorization: Bearer <token>
+body example 
+{ "id_produit": "<uuid>", "motif": "Produit contrefait" }
+35 Get My Adresses
+methode : GET 
+url : http://localhost:5000/api/adresses
+Authorization: Bearer <token>
+
+
+36 Add Adresse
+methode : POST
+url :  http://localhost:5000/api/adresses
+Authorization: Bearer <token>
+exemple body{ "numero_rue": "12", "nom_rue": "Rue de la Paix", "complement_adresse": "Appt 3B", "code_postal": "19000", "ville": "Sétif", "region": "Sétif", "pays": "Algérie" }
+
+
+37 upload pfp
+methode : post
+http://localhost:5000/api/clients/profile/picture
+Authorization: Bearer <client token>
+Content-Type	multipart/form-data
+body 
+form 'photoProfil=@"c:\\Users\\tasusna\\Documents\\pc backup\\personal\\Downloads\\AA.png"' 
+(just upload picture)
+
+
+38 update profile
+methode : post
+http://localhost:5000/api/clients/profile
+Authorization: Bearer <client token>
+body 
+updated fields
+
+39 reset password
+methode : post
+http://localhost:5000/api/clients/password
+Authorization: Bearer <client token>
+body
+{
+“new_password “ : xxxxxxx
+}
+
+
+40 get stock alarm
+methode : get
+url : 
+http://localhost:5000/api/prediction/restock/id magasin
+auth bearer : vendeurs token
+
+41 get revenue prediction :
+methode : get
+url : 
+http://localhost:5000/api/prediction/revenue/id magasin
+auth bearer : vendeurs token
+
+42 get admin stats
+methode : Get
+url : http://localhost:5000/api/admin/stats
+headers: auth bearer (admin's token)
+
+43 get admin predictions
+methode : get
+url : http://localhost:5000/api/admin/predictions
+headers: auth bearer (admin's token)
+
+44 delete client
+methode : delete
+url : http://localhost:5000/api/admin/clients/id client
+auth bearer admins token
+
+44 delete produits
+methode : delete
+url : http://localhost:5000/api/admin/produits/7f28f5f5-3035-4072-985a-7357315b1171http://localhost:5000/api/admin/produits/id produit
+auth bearer admins token
+
+45 get all avis
+methode : get
+url : http://localhost:5000/api/admin/avis
+auth bearer admins token
+
+46 delete avis
+methode :delete
+url : http://localhost:5000/api/admin/avis/id avis
+auth bearer admins token
+
+
+47 get all commandes 
+methode : get
+url : http://localhost:5000/api/admin/commandes
+auth bearer admins token
+
+48 admin annuler commande
+methode : put
+url : http://localhost:5000/api/admin/commandes/id commande/annuler
+auth bearer admins token
+
+49 admin get revenue of vendeur
+methode : get
+url : http://localhost:5000/api/admin/vendeurs/id vendeur/revenue
+auth bearer admins token
+
+50 payer vendeur
+methode : post
+url : http://localhost:5000/api/admin/vendeurs/371e7047-5b18-4039-9360-3d49c6efce5a/payer
+exemple body
+{
+  
+  "montant":"200",
+  "methode": "carte visa",
+  "note":""
+}
+
+51 admin gets all past payments to vendeur
+methode : get
+url : http://localhost:5000/api/admin/vendeurs/id vendeur/paiements
+auth bearer admins token
+
+52 admin get signalement
+methode : get
+url : http://localhost:5000/api/admin/signalements
+auth bearer admins token
+
+53 admin delete signalement (he solves it first)
+methode : delete
+url : http://localhost:5000/api/admin/signalements/0bf946e7-38db-4a92-9dd6-32a5b07c5cd9
+auth bearer admins token
+
+54 admin create category 
+methode :post
+url : http://localhost:5000/api/catalog/categories
+auth bearer admins tokens
+exemple body
+{
+  
+  "nom":"laptops"
+}
+
+55 admin ajouter type 
+methode :post
+url : http://localhost:5000/api/catalog/types
+auth bearer admins tokens
+exemple body {
+  
+  "nom":"lenovo",
+  "nom_categorie": "laptops"
+}
+
+56 admin mettre a jour category
+methode :post
+url : http://localhost:5000/api/catalog/categories/id categorie
+auth bearer admins tokens
+exemple body
+{
+  "nom":"laptop"
+}
+57 get all categories
+get
+http://localhost:5000/api/catalog/categories
+auth bearer admins tokens
+
+58 get all types
+get
+http://localhost:5000/api/catalog/types
+auth bearer admins tokens
+
+59 mettre a jour type
+post
+http://localhost:5000/api/catalog/types/id type
+auth bearer admins tokens
+exemple body
+{
+  "nom":"laptop"
+}
+60 supprimer type
+delete
+http://localhost:5000/api/catalog/types/id type
+auth bearer admins tokens
+
+61 supprimer categorie
+delete
+http://localhost:5000/api/catalog/categories/id categorie
+auth bearer admins tokens
+
+62 chatbot
+get
+http://localhost:5000/api/chat
+body exemple
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Bonjour, comment je peux payer ma commande ?"
+    }
+  ],
+  "userContext": {
+    "name": "Yassine",
+    "role": "client"
+  },
+  "language": "fr"
+}

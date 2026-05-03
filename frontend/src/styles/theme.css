@@ -1,0 +1,204 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+
+  /* Premium Light Theme - Strong delimitation, Stripe/Linear inspired */
+  --background: #f0f2f5;
+  /* Structured warm-gray base for clear section separation */
+  --section-bg: #ffffff;
+  --foreground: #0f172a;
+
+  /* Deep, readable text */
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+
+  /* Solid white cards — no transparency in light mode */
+  --card: #ffffff;
+  --card-foreground: #111827;
+
+  /* Popovers */
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  /* Primary - Rich purple */
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1e40af;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+
+  --accent: #f5f3ff;
+  --accent-foreground: #7c3aed;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --success: #10b981;
+  --success-foreground: #ffffff;
+
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+
+  /* Borders - Clearly visible for delimitation */
+  --border: #d5dbe5;
+  --input: #ffffff;
+  --input-background: #ffffff;
+  --switch-background: #d5dbe5;
+  --ring: #7c3aed;
+
+  /* Premium Shadows - More pronounced for light mode depth */
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --shadow-soft: 0 2px 8px -1px rgba(0, 0, 0, 0.08), 0 4px 16px -4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.1), 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 40px -8px rgba(0, 0, 0, 0.15), 0 4px 16px -4px rgba(0, 0, 0, 0.1);
+  --shadow-lift: 0 8px 30px -4px rgba(124, 58, 237, 0.18), 0 4px 12px -2px rgba(124, 58, 237, 0.12);
+
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #7c3aed;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #d5dbe5;
+  --sidebar-ring: rgba(124, 58, 237, 0.2);
+
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #0f0518;
+  --foreground: #f8fafc;
+  --card: rgba(43, 13, 62, 0.4);
+  --card-foreground: #f8fafc;
+  --popover: rgba(20, 7, 30, 0.95);
+  --popover-foreground: #f8fafc;
+  --primary: #8b5cf6;
+  --primary-foreground: #ffffff;
+  --secondary: rgba(139, 92, 246, 0.2);
+  --secondary-foreground: #e2e8f0;
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #94a3b8;
+  --accent: rgba(139, 92, 246, 0.15);
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(139, 92, 246, 0.2);
+  --input: rgba(255, 255, 255, 0.03);
+  --ring: rgba(139, 92, 246, 0.5);
+  --sidebar: rgba(15, 5, 24, 0.95);
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #8b5cf6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(139, 92, 246, 0.15);
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: rgba(139, 92, 246, 0.2);
+  --sidebar-ring: rgba(139, 92, 246, 0.5);
+  /* Shadows in dark mode remain neon-tinted */
+  --shadow-soft: 0 4px 20px -2px rgba(139, 92, 246, 0.1);
+  --shadow-md: 0 10px 30px -5px rgba(139, 92, 246, 0.2);
+  --shadow-lg: 0 20px 50px -12px rgba(139, 92, 246, 0.3);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}

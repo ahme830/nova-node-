@@ -1,0 +1,44 @@
+{
+    "info": {
+        "_postman_id": "8227f698-56e9-47ba-b9c0-f23234d5a0d7",
+        "name": "auth apis",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "http://localhost:5000/api/auth/register",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:5000/api/auth/register",
+                    "path": [
+                        "api",
+                        "auth",
+                        "register"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000"
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"email\": \"testiii2@gmail.com\",\r\n  \"password\": \"password\",\r\n  \"username\": \"TestUser\",\r\n  \"role\": \"client\"\r\n}"
+                }
+            }
+        }
+    ]
+}
