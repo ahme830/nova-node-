@@ -28,7 +28,7 @@ export const AdminDashboard = () => {
   const statCards = [
     { label: t('adminDashboard.users'), value: stats?.totalUsers, icon: Users, color: 'text-blue-600 dark:text-blue-500', bg: 'bg-blue-50 dark:bg-blue-500/10', iconBg: 'bg-blue-100 dark:bg-blue-500/20' },
     { label: t('adminDashboard.activeVendors'), value: stats?.totalVendors, icon: ShieldCheck, color: 'text-cyan-600 dark:text-cyan-500', bg: 'bg-cyan-50 dark:bg-cyan-500/10', iconBg: 'bg-cyan-100 dark:bg-cyan-500/20' },
-    { label: t('adminDashboard.indexedProducts'), value: stats?.totalProducts, icon: Package, color: 'text-purple-600 dark:text-purple-500', bg: 'bg-purple-50 dark:bg-purple-500/10', iconBg: 'bg-purple-100 dark:bg-purple-500/20' },
+    { label: t('adminDashboard.indexedProducts'), value: stats?.totalProducts, icon: Package, color: 'text-blue-600 dark:text-blue-500', bg: 'bg-blue-50 dark:bg-blue-500/10', iconBg: 'bg-blue-100 dark:bg-blue-500/20' },
     { label: t('adminDashboard.salesVolume'), value: stats?.totalOrders, icon: Activity, color: 'text-green-600 dark:text-green-500', bg: 'bg-green-50 dark:bg-green-500/10', iconBg: 'bg-green-100 dark:bg-green-500/20' },
   ];
 
@@ -53,7 +53,7 @@ export const AdminDashboard = () => {
                     <Link to="/admin/reports" className="px-4 py-2 border border-border dark:border-primary/40 bg-muted/50 dark:bg-transparent text-primary text-[10px] hover:bg-primary/10 transition-all rounded-lg font-bold">Signalements</Link>
                     <Link to="/admin/messages" className="px-4 py-2 border border-border dark:border-primary/40 bg-muted/50 dark:bg-transparent text-primary text-[10px] hover:bg-primary/10 transition-all rounded-lg font-bold">Messages</Link>
                     <Link to="/admin/categories" className="px-4 py-2 border border-border dark:border-primary/40 bg-muted/50 dark:bg-transparent text-primary text-[10px] hover:bg-primary/10 transition-all rounded-lg font-bold">Catalogue</Link>
-                    <Link to="/admin/predictions" className="px-4 py-2 border border-purple-300 dark:border-purple-500/40 bg-purple-50 dark:bg-transparent text-purple-700 dark:text-purple-400 text-[10px] hover:bg-purple-100 dark:hover:bg-purple-500/10 transition-all rounded-lg font-bold flex items-center gap-1"><Brain size={12} /> Prédictions IA</Link>
+                    <Link to="/admin/predictions" className="px-4 py-2 border border-blue-300 dark:border-blue-500/40 bg-blue-50 dark:bg-transparent text-blue-700 dark:text-blue-400 text-[10px] hover:bg-blue-100 dark:hover:bg-blue-500/10 transition-all rounded-lg font-bold flex items-center gap-1"><Brain size={12} /> Prédictions IA</Link>
                 </div>
             </div>
         </div>
@@ -143,9 +143,9 @@ export const AdminDashboard = () => {
                 <span className="group-hover:text-primary transition-colors">{t('adminDashboard.maintenance')}</span>
                 <ShieldCheck size={14} className="text-muted-foreground group-hover:text-primary transition-all" />
             </button>
-            <Link to="/admin/predictions" className="p-5 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-500/10 dark:to-pink-500/10 border border-purple-200 dark:border-purple-500/30 rounded-xl flex items-center justify-between hover:border-purple-400 dark:hover:border-purple-500/50 transition-all group shadow-sm">
-                <span className="text-purple-700 dark:text-purple-400 group-hover:text-purple-800 dark:group-hover:text-purple-300 transition-colors flex items-center gap-2"><Brain size={14} /> Prédictions IA</span>
-                <ChevronRight size={14} className="text-purple-400 group-hover:text-purple-600 transition-all group-hover:translate-x-1" />
+            <Link to="/admin/predictions" className="p-5 bg-gradient-to-r from-blue-50 to-pink-50 dark:from-blue-500/10 dark:to-pink-500/10 border border-blue-200 dark:border-blue-500/30 rounded-xl flex items-center justify-between hover:border-blue-400 dark:hover:border-blue-500/50 transition-all group shadow-sm">
+                <span className="text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors flex items-center gap-2"><Brain size={14} /> Prédictions IA</span>
+                <ChevronRight size={14} className="text-blue-400 group-hover:text-blue-600 transition-all group-hover:translate-x-1" />
             </Link>
         </div>
 

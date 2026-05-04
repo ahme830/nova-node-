@@ -89,7 +89,7 @@ export const AdminOrders = () => {
             <h1 className="text-3xl font-bold flex items-center gap-3">
               <ShoppingCart className="text-primary" /> Gestion des Commandes
             </h1>
-            <p className="text-muted-foreground mt-1">Surveillance des transactions Nexus Marketplace</p>
+            <p className="text-muted-foreground mt-1">Surveillance des transactions Nova Node Marketplace</p>
           </div>
           <div className="relative w-full md:w-96">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />

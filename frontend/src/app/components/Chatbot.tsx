@@ -25,7 +25,7 @@ export function Chatbot() {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: 'Bonjour ! Je suis l\'assistant NEXUS, votre expert en matériel informatique. Comment puis-je vous aider aujourd\'hui ?' }
+    { role: 'assistant', content: 'Bonjour ! Je suis l\'assistant NOVA NODE, votre expert en matériel informatique. Comment puis-je vous aider aujourd\'hui ?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -106,7 +106,7 @@ export function Chatbot() {
                   <MessageCircle className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">{t('chatbot.title') || 'Assistant NEXUS'}</h3>
+                  <h3 className="font-semibold">{t('chatbot.title') || 'Assistant NOVA NODE'}</h3>
                   <p className="text-xs opacity-80">{t('chatbot.subtitle') || 'Expert Informatique'}</p>
                 </div>
               </div>

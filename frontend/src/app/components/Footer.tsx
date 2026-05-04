@@ -15,7 +15,7 @@ export function Footer() {
                 <div className="absolute inset-0 bg-primary opacity-50 blur-md rounded-full group-hover:opacity-100 transition-opacity"></div>
                 <Package className="w-6 h-6 text-white relative z-10" />
               </div>
-              <span className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70 dark:from-white dark:to-white/70">NEXUS</span>
+              <span className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70 dark:from-white dark:to-white/70">NOVA NODE</span>
             </div>
             <p className="text-sm text-text-secondary leading-relaxed">
               {t('home.heroDesc')}
@@ -48,7 +48,7 @@ export function Footer() {
                 <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center border border-border">
                   <Mail className="w-4 h-4 text-primary" />
                 </div>
-                contact@nexus-prime.net
+                contact@nova-node-prime.net
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center border border-border">
@@ -67,7 +67,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center text-sm text-text-secondary flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>&copy; 2026 NEXUS. {t('footer.rights')}.</p>
+          <p>&copy; 2026 NOVA NODE. {t('footer.rights')}.</p>
           <div className="flex gap-6">
             <Link to="/terms" className="hover:text-primary">{t('footer.terms')}</Link>
             <Link to="/privacy" className="hover:text-primary">{t('footer.privacy')}</Link>

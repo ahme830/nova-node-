@@ -72,7 +72,7 @@ export function Navbar({ cartItemsCount = 0, onMenuClick }: NavbarProps) {
                 <div className="absolute inset-0 bg-primary opacity-30 blur-md rounded-full group-hover:opacity-50 transition-opacity"></div>
                 <Package className="w-8 h-8 text-primary relative z-10" />
               </div>
-              <span className="text-xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70">NEXUS</span>
+              <span className="text-xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70">NOVA NODE</span>
             </button>
           </div>
 

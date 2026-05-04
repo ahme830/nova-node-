@@ -305,7 +305,7 @@ export const VendorProducts = () => {
                       value={formData.nom_produit}
                       onChange={e => setFormData({...formData, nom_produit: e.target.value})}
                       className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm font-mono focus:border-primary/50 focus:ring-1 focus:ring-primary/20 outline-none transition-all"
-                      placeholder="NEXUS-PRO-01"
+                      placeholder="NOVA-NODE-PRO-01"
                     />
                   </div>
 

@@ -118,7 +118,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     authService.logout().catch(() => { });
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem('auth_user');
-    localStorage.removeItem('nexus_local_cart');
+    localStorage.removeItem('nova_node_local_cart');
     setUser(null);
   };
 

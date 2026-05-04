@@ -16,7 +16,7 @@ interface FavorisContextType {
 
 const FavorisContext = createContext<FavorisContextType | undefined>(undefined);
 
-const LOCAL_FAVORIS_KEY = 'nexus_local_favoris';
+const LOCAL_FAVORIS_KEY = 'nova_node_local_favoris';
 
 export const FavorisProvider = ({ children }: { children: ReactNode }) => {
     const { user } = useAuth();

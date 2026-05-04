@@ -27,7 +27,7 @@ export function Legal() {
                 <h2 className="text-xl font-bold">{t('legal.publisher')}</h2>
               </div>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><strong className="text-foreground">{t('legal.companyName')}:</strong> Nexus-Prime Technologies</li>
+                <li><strong className="text-foreground">{t('legal.companyName')}:</strong> Nova Node Prime Technologies</li>
                 <li><strong className="text-foreground">{t('legal.director')}:</strong> Cyber-Core 01</li>
                 <li><strong className="text-foreground">{t('legal.capital')}:</strong> 1.000.000.000 {t('legal.nexusCredits')}</li>
                 <li><strong className="text-foreground">{t('legal.rcs')}:</strong> Alger B 123 456 789</li>
@@ -43,7 +43,7 @@ export function Legal() {
                 {t('legal.address1')}<br />
                 {t('legal.address2')}<br />
                 {t('legal.address3')}<br />
-                <span className="font-mono text-xs opacity-50 uppercase tracking-widest mt-4 block italic">{t('legal.liaison')} : contact@nexus-prime.net</span>
+                <span className="font-mono text-xs opacity-50 uppercase tracking-widest mt-4 block italic">{t('legal.liaison')} : contact@nova-node-prime.net</span>
               </p>
             </section>
 

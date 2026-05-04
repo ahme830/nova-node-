@@ -55,7 +55,7 @@ export function Privacy() {
           </section>
 
           <div className="text-center pt-10 text-xs text-muted-foreground font-mono opacity-50 uppercase tracking-widest">
-            {t('privacy.lastUpdate')} : 2026.04.09 // NEXUS-SECURITY-DEPT
+            {t('privacy.lastUpdate')} : 2026.04.09 // NOVA-NODE-SECURITY-DEPT
           </div>
         </motion.div>
       </div>

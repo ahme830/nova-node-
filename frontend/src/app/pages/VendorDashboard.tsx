@@ -129,7 +129,7 @@ export function VendorDashboard() {
             <span className="hidden sm:inline">{t('vendorDashboard.injectModule')}</span>
             <span className="sm:hidden">{t('vendorDashboard.injectModuleShort')}</span>
           </Button>
-          <Button variant="outline" className="h-11 sm:h-14 px-5 sm:px-8 text-sm sm:text-lg font-bold self-start sm:self-auto gap-2 border-purple-300 dark:border-purple-500/40 text-purple-700 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-500/10" 
+          <Button variant="outline" className="h-11 sm:h-14 px-5 sm:px-8 text-sm sm:text-lg font-bold self-start sm:self-auto gap-2 border-blue-300 dark:border-blue-500/40 text-blue-700 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10" 
             onClick={() => navigate('/vendor/predictions')}
           >
             <Brain className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -189,15 +189,15 @@ export function VendorDashboard() {
                       color: 'var(--foreground)',
                       boxShadow: 'var(--shadow-md)'
                     }}
-                    itemStyle={{ color: '#8b5cf6' }}
+                    itemStyle={{ color: '#3b82f6' }}
                   />
                   <Line
                     type="monotone"
                     dataKey="sales"
-                    stroke="#8b5cf6"
+                    stroke="#3b82f6"
                     strokeWidth={4}
-                    dot={{ fill: '#8b5cf6', r: 6, strokeWidth: 0 }}
-                    activeDot={{ r: 8, stroke: '#8b5cf6', strokeWidth: 2, fill: 'var(--card)' }}
+                    dot={{ fill: '#3b82f6', r: 6, strokeWidth: 0 }}
+                    activeDot={{ r: 8, stroke: '#3b82f6', strokeWidth: 2, fill: 'var(--card)' }}
                   />
                 </LineChart>
               </ResponsiveContainer>
@@ -227,7 +227,7 @@ export function VendorDashboard() {
                       boxShadow: 'var(--shadow-md)'
                     }}
                   />
-                  <Bar dataKey="sales" fill="#8b5cf6" radius={[12, 12, 0, 0]} />
+                  <Bar dataKey="sales" fill="#3b82f6" radius={[12, 12, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             ) : (

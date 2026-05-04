@@ -5,7 +5,7 @@ import fr from './fr.json';
 import en from './en.json';
 import ar from './ar.json';
 
-const savedLang = localStorage.getItem('nexus_lang') || 'fr';
+const savedLang = localStorage.getItem('nova_node_lang') || 'fr';
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -26,7 +26,7 @@ const applyDirection = (lang: string) => {
 applyDirection(savedLang);
 
 i18n.on('languageChanged', (lng) => {
-  localStorage.setItem('nexus_lang', lng);
+  localStorage.setItem('nova_node_lang', lng);
   applyDirection(lng);
 });
 

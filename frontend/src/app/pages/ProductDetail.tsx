@@ -201,7 +201,7 @@ export function ProductDetail() {
               <h1 className="text-2xl sm:text-4xl font-extrabold text-foreground mb-2 sm:mb-3 tracking-tight">{product.nom_produit}</h1>
               <p className="text-muted-foreground flex items-center gap-2">
                 <span className="text-sm uppercase tracking-widest font-mono">{t('product.supplier')}:</span>
-                <span className="text-primary font-bold">{product.magasin?.nom_magasin || 'Nexus Partner'}</span>
+                <span className="text-primary font-bold">{product.magasin?.nom_magasin || 'Nova Node Partner'}</span>
               </p>
               <button 
                 onClick={() => handleReport('produit', product.id)}

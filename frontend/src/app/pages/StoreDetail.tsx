@@ -128,7 +128,7 @@ export const StoreDetail = () => {
                             {store.vendeur?.nom_utilisateur?.charAt(0) || 'V'}
                         </div>
                         <div>
-                            <p className="font-bold">{store.vendeur?.nom_utilisateur || 'Nexus Partner'}</p>
+                            <p className="font-bold">{store.vendeur?.nom_utilisateur || 'Nova Node Partner'}</p>
                             <p className="text-xs text-muted-foreground">ID: {store.id_vendeur.substring(0,8)}...</p>
                         </div>
                     </div>

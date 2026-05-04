@@ -126,7 +126,7 @@ export function VendorPredictions() {
               <ArrowLeft size={14} /> Retour au dashboard
             </button>
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center shadow-md">
                 <Brain className="w-5 h-5 text-white" />
               </div>
               <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight">Prédictions IA</h1>
@@ -150,8 +150,8 @@ export function VendorPredictions() {
         {/* KPI Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
           <div className="bg-card dark:bg-card/40 border border-border rounded-2xl p-6 shadow-soft">
-            <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-500/20 flex items-center justify-center mb-3">
-              <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+            <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-500/20 flex items-center justify-center mb-3">
+              <TrendingUp className="w-5 h-5 text-blue-600 dark:text-blue-400" />
             </div>
             <p className="text-xs text-muted-foreground uppercase font-bold">Revenu Prédit (7j)</p>
             <p className="text-2xl sm:text-3xl font-black mt-1 tabular-nums">
@@ -189,7 +189,7 @@ export function VendorPredictions() {
           <div className="flex items-center justify-between flex-wrap gap-3 mb-6 sm:mb-8">
             <div>
               <h2 className="text-lg sm:text-2xl font-bold tracking-tight flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center">
                   <TrendingUp className="w-4 h-4 text-white" />
                 </div>
                 Prévision du Chiffre d'Affaires
@@ -203,8 +203,8 @@ export function VendorPredictions() {
               <AreaChart data={revenueForecast}>
                 <defs>
                   <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#88888815" vertical={false} />
@@ -240,11 +240,11 @@ export function VendorPredictions() {
                 <Area
                   type="monotone"
                   dataKey="revenu_predit"
-                  stroke="#8b5cf6"
+                  stroke="#3b82f6"
                   strokeWidth={3}
                   fill="url(#revenueGradient)"
-                  dot={{ fill: '#8b5cf6', r: 5, strokeWidth: 0 }}
-                  activeDot={{ r: 8, stroke: '#8b5cf6', strokeWidth: 2, fill: 'var(--card)' }}
+                  dot={{ fill: '#3b82f6', r: 5, strokeWidth: 0 }}
+                  activeDot={{ r: 8, stroke: '#3b82f6', strokeWidth: 2, fill: 'var(--card)' }}
                 />
               </AreaChart>
             </ResponsiveContainer>

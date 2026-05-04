@@ -10,14 +10,14 @@ export function OrderSuccess() {
   const navigate = useNavigate();
   const location = useLocation();
   const { t, i18n } = useTranslation();
-  const { orderId, total } = location.state || { orderId: 'NEXUS-XXXXX', total: 0 };
+  const { orderId, total } = location.state || { orderId: 'NOVA-NODE-XXXXX', total: 0 };
 
   useEffect(() => {
     confetti({
       particleCount: 150,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#8b5cf6', '#d946ef', '#ffffff']
+      colors: ['#3b82f6', '#d946ef', '#ffffff']
     });
   }, []);
 

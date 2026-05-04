@@ -35,7 +35,7 @@ export function OrderDetails() {
     if (!order) return;
 
     const doc = new jsPDF();
-    const primaryColor = [139, 92, 246]; // #8b5cf6
+    const primaryColor = [139, 92, 246]; // #3b82f6
     
     // Header - Modern Design
     doc.setFillColor(30, 30, 30);
@@ -44,7 +44,7 @@ export function OrderDetails() {
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(24);
     doc.setFont('helvetica', 'bold');
-    doc.text('NEXUS', 20, 25);
+    doc.text('NOVA NODE', 20, 25);
     
     doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
@@ -128,11 +128,11 @@ export function OrderDetails() {
     doc.setFontSize(8);
     doc.setFont('helvetica', 'italic');
     doc.setTextColor(150, 150, 150);
-    doc.text('Merci de votre confiance en l\'écosystème NEXUS.', 105, 280, { align: 'center' });
-    doc.text('Document généré numériquement - Certifié Nexus Prime.', 105, 285, { align: 'center' });
+    doc.text('Merci de votre confiance en l\'écosystème NOVA NODE.', 105, 280, { align: 'center' });
+    doc.text('Document généré numériquement - Certifié Nova Node Prime.', 105, 285, { align: 'center' });
 
     // Download
-    doc.save(`Facture_NEXUS_${order.id.substring(0, 8).toUpperCase()}.pdf`);
+    doc.save(`Facture_NOVA NODE_${order.id.substring(0, 8).toUpperCase()}.pdf`);
     toast.success(t('orderDetails.invoicePdf') + ' ' + t('common.done', 'Générée'));
   };
 

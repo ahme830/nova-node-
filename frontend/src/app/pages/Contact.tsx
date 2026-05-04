@@ -71,7 +71,7 @@ export function Contact() {
                   <label className="text-xs font-mono uppercase tracking-widest text-muted-foreground ml-1">{t('contact.emailLabel')}</label>
                   <input 
                     type="email" 
-                    placeholder="votre@nexus.com"
+                    placeholder="votre@nova-node.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-muted dark:bg-white/5 border border-border rounded-xl px-4 py-3 focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all font-mono text-sm"
@@ -121,7 +121,7 @@ export function Contact() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                { icon: Mail, label: t('contact.emailLabelInfo'), value: 'core@nexus-prime.net' },
+                { icon: Mail, label: t('contact.emailLabelInfo'), value: 'core@nova-node-prime.net' },
                 { icon: Phone, label: t('contact.phoneLabel'), value: '+213 555 123 456' },
                 { icon: MapPin, label: t('contact.addressLabel'), value: 'Secteur 04, Alger' },
                 { icon: MessageSquare, label: t('contact.chatLabel'), value: t('contact.available') },

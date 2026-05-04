@@ -53,7 +53,7 @@ export function Terms() {
           </section>
 
           <div className="text-center pt-10 text-xs text-muted-foreground font-mono opacity-50 uppercase tracking-widest">
-            {t('terms.lastUpdate')} : 2026.04.09 // NEXUS-LEGAL-DEPT
+            {t('terms.lastUpdate')} : 2026.04.09 // NOVA-NODE-LEGAL-DEPT
           </div>
         </motion.div>
       </div>

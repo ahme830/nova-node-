@@ -18,7 +18,7 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-const LOCAL_CART_KEY = 'nexus_local_cart';
+const LOCAL_CART_KEY = 'nova_node_local_cart';
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
     const { user } = useAuth();

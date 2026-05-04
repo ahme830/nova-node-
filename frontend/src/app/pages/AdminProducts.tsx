@@ -80,7 +80,7 @@ export const AdminProducts = () => {
             <h1 className="text-3xl font-bold flex items-center gap-3">
               <Package className="text-primary" /> Gestion des Produits
             </h1>
-            <p className="text-muted-foreground mt-1">Supervision globale de l'inventaire Nexus</p>
+            <p className="text-muted-foreground mt-1">Supervision globale de l'inventaire Nova Node</p>
           </div>
           <div className="relative w-full md:w-96">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />

@@ -126,7 +126,7 @@ export function AdminPredictions() {
               <ArrowLeft size={14} /> Retour au dashboard
             </button>
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center shadow-md">
                 <Brain className="w-5 h-5 text-white" />
               </div>
               <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight">Prédictions IA — Vue Globale</h1>
@@ -142,8 +142,8 @@ export function AdminPredictions() {
         {/* Global KPI Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
           <div className="bg-card dark:bg-card/40 border border-border rounded-2xl p-6 shadow-soft">
-            <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-500/20 flex items-center justify-center mb-3">
-              <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+            <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-500/20 flex items-center justify-center mb-3">
+              <TrendingUp className="w-5 h-5 text-blue-600 dark:text-blue-400" />
             </div>
             <p className="text-xs text-muted-foreground uppercase font-bold">Revenu Global Prédit (7j)</p>
             <p className="text-2xl sm:text-3xl font-black mt-1 tabular-nums">
@@ -173,7 +173,7 @@ export function AdminPredictions() {
         {storeRevenueChart.length > 0 && (
           <div className="bg-card dark:bg-card/40 border border-border rounded-2xl p-5 sm:p-8 shadow-soft mb-8 sm:mb-12">
             <h2 className="text-lg sm:text-2xl font-bold tracking-tight flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center">
                 <BarChart3 className="w-4 h-4 text-white" />
               </div>
               Revenu Prédit par Magasin (7 jours)
@@ -198,7 +198,7 @@ export function AdminPredictions() {
                     name === 'revenu' ? 'Revenu Prédit' : 'Alertes'
                   ]}
                 />
-                <Bar dataKey="revenu" fill="#8b5cf6" radius={[8, 8, 0, 0]} />
+                <Bar dataKey="revenu" fill="#3b82f6" radius={[8, 8, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>

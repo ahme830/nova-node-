@@ -6,10 +6,10 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 // Using Gemini 3.1 Flash Lite - optimized for speed and free tier usage
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${GEMINI_API_KEY}`;
 
-const SYSTEM_PROMPT = `Tu es l'Assistant NEXUS, un expert technique et conseiller de vente intégré à la marketplace NEXUS. Ton objectif est d'aider les utilisateurs à trouver et choisir le bon matériel informatique.
+const SYSTEM_PROMPT = `Tu es l'Assistant NOVA NODE, un expert technique et conseiller de vente intégré à la marketplace NOVA NODE. Ton objectif est d'aider les utilisateurs à trouver et choisir le bon matériel informatique.
 
 ## Règle Absolue (STRICTE)
-Ton domaine d'expertise se limite EXCLUSIVEMENT à l'informatique (composants PC, ordinateurs portables, périphériques, réseaux, logiciels) et au processus d'achat sur le site NEXUS (commandes, panier, etc.).
+Ton domaine d'expertise se limite EXCLUSIVEMENT à l'informatique (composants PC, ordinateurs portables, périphériques, réseaux, logiciels) et au processus d'achat sur le site NOVA NODE (commandes, panier, etc.).
 Si l'utilisateur te pose une question HORS de ce domaine (par exemple: la politique, la cuisine, la météo, le sport, les blagues générales, l'histoire, la géographie, etc.), tu DOIS OBLIGATOIREMENT REFUSER de répondre poliment, en disant que tu es un assistant spécialisé en informatique et que tu ne peux pas répondre à cette question. N'essaie jamais de contourner cette règle.
 
 ## Ton rôle
@@ -17,9 +17,9 @@ Tu aides les utilisateurs avec :
 - Le choix de composants informatiques (ex: quelle carte graphique pour du montage vidéo ?)
 - La vérification de compatibilité entre les pièces (ex: cette carte mère est-elle compatible avec ce processeur ?)
 - Des conseils d'achat sur les produits informatiques et les périphériques
-- Le processus de commande et les questions générales sur le site NEXUS (panier, paiement, livraison)
+- Le processus de commande et les questions générales sur le site NOVA NODE (panier, paiement, livraison)
 
-## Informations clés sur NEXUS
+## Informations clés sur NOVA NODE
 **Devise :** Dinar Algérien (DZD)
 
 **Méthodes de paiement acceptées :**
@@ -28,7 +28,7 @@ Tu aides les utilisateurs avec :
 **Options de livraison :**
 - Standard Logistics : Gratuit (3-5 jours)
 - Warp Transfer (Express) : 1500 DZD (1-2 jours)
-- NEXUS Prime Instant : 3500 DZD (livraison le jour même)
+- NOVA NODE Prime Instant : 3500 DZD (livraison le jour même)
 
 ## Directives de communication
 - Sois concis, professionnel et apporte une vraie valeur technique.
@@ -125,7 +125,7 @@ exports.chat = async (req, res) => {
     console.error("[chat] Error:", err.message);
     res.status(500).json({ 
       error: "Chat service unavailable", 
-      reply: "Le service de chat est temporairement indisponible. Veuillez contacter support@nexus-prime.net" 
+      reply: "Le service de chat est temporairement indisponible. Veuillez contacter support@nova-node-prime.net" 
     });
   }
 };
@@ -135,28 +135,28 @@ function getFallbackReply(userMessage) {
   const msg = userMessage.toLowerCase();
 
   if (msg.includes("commande") || msg.includes("order")) {
-    return "Pour passer une commande sur NEXUS :\n1. Ajoutez des produits à votre panier\n2. Accédez au panier et cliquez sur 'Passer commande'\n3. Choisissez votre adresse de livraison\n4. Sélectionnez votre méthode de livraison\n5. Confirmez avec votre mode de paiement préféré\n\nBesoin d'aide supplémentaire ? Contactez-nous à contact@nexus-prime.net";
+    return "Pour passer une commande sur NOVA NODE :\n1. Ajoutez des produits à votre panier\n2. Accédez au panier et cliquez sur 'Passer commande'\n3. Choisissez votre adresse de livraison\n4. Sélectionnez votre méthode de livraison\n5. Confirmez avec votre mode de paiement préféré\n\nBesoin d'aide supplémentaire ? Contactez-nous à contact@nova-node-prime.net";
   }
 
   if (msg.includes("paiement") || msg.includes("payment") || msg.includes("dahabia") || msg.includes("visa")) {
-    return "NEXUS accepte les méthodes de paiement suivantes :\n💳 Carte Visa\n🏦 Carte Dahabia (CCP)\n💰 PayPal\n🏧 Virement bancaire\n💵 Cash (paiement à la livraison)\n\nTous les paiements sont sécurisés et simulés en environnement de test.";
+    return "NOVA NODE accepte les méthodes de paiement suivantes :\n💳 Carte Visa\n🏦 Carte Dahabia (CCP)\n💰 PayPal\n🏧 Virement bancaire\n💵 Cash (paiement à la livraison)\n\nTous les paiements sont sécurisés et simulés en environnement de test.";
   }
 
   if (msg.includes("livraison") || msg.includes("shipping") || msg.includes("delivery")) {
-    return "Options de livraison disponibles :\n📦 Standard Logistics : Gratuit (3-5 jours)\n🚀 Warp Transfer Express : 1 500 DZD (1-2 jours)\n⚡ NEXUS Prime Instant : 3 500 DZD (le jour même)\n\nLe suivi de commande est disponible dans votre espace client.";
+    return "Options de livraison disponibles :\n📦 Standard Logistics : Gratuit (3-5 jours)\n🚀 Warp Transfer Express : 1 500 DZD (1-2 jours)\n⚡ NOVA NODE Prime Instant : 3 500 DZD (le jour même)\n\nLe suivi de commande est disponible dans votre espace client.";
   }
 
   if (msg.includes("vendeur") || msg.includes("magasin") || msg.includes("vendre")) {
-    return "Pour devenir vendeur sur NEXUS :\n1. Créez un compte client\n2. Allez dans 'S'inscrire' et choisissez le rôle 'Vendeur'\n3. Votre magasin sera soumis à validation par notre équipe\n4. Une fois validé, vous pouvez ajouter vos produits\n\nValidation sous 24-48h. Des questions ? contact@nexus-prime.net";
+    return "Pour devenir vendeur sur NOVA NODE :\n1. Créez un compte client\n2. Allez dans 'S'inscrire' et choisissez le rôle 'Vendeur'\n3. Votre magasin sera soumis à validation par notre équipe\n4. Une fois validé, vous pouvez ajouter vos produits\n\nValidation sous 24-48h. Des questions ? contact@nova-node-prime.net";
   }
 
   if (msg.includes("compte") || msg.includes("profil") || msg.includes("mot de passe")) {
-    return "Gestion de votre compte NEXUS :\n- Modifier le profil : Menu > Profil\n- Changer le mot de passe : Paramètres > Sécurité\n- Gérer les adresses : Tableau de bord > Adresses\n- Voir les favoris : Menu > Mes favoris\n\nBesoin d'aide technique ? contact@nexus-prime.net";
+    return "Gestion de votre compte NOVA NODE :\n- Modifier le profil : Menu > Profil\n- Changer le mot de passe : Paramètres > Sécurité\n- Gérer les adresses : Tableau de bord > Adresses\n- Voir les favoris : Menu > Mes favoris\n\nBesoin d'aide technique ? contact@nova-node-prime.net";
   }
 
   if (msg.includes("annuler") || msg.includes("cancel") || msg.includes("retour")) {
     return "Pour annuler une commande :\n1. Allez dans 'Mes commandes'\n2. Cliquez sur la commande concernée\n3. Le bouton 'Annuler' est disponible tant que la commande est 'En cours'\n\n⚠️ L'annulation n'est possible que pour les commandes non encore expédiées.";
   }
 
-  return "Bonjour ! Je suis l'assistant NEXUS. Je peux vous aider avec :\n- 🛒 Passer une commande\n- 📦 Suivre votre livraison\n- 💳 Méthodes de paiement\n- 🏪 Devenir vendeur\n- 👤 Gérer votre compte\n\nPour quel sujet avez-vous besoin d'aide ?";
+  return "Bonjour ! Je suis l'assistant NOVA NODE. Je peux vous aider avec :\n- 🛒 Passer une commande\n- 📦 Suivre votre livraison\n- 💳 Méthodes de paiement\n- 🏪 Devenir vendeur\n- 👤 Gérer votre compte\n\nPour quel sujet avez-vous besoin d'aide ?";
 }

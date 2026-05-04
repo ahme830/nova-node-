@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const HISTORY_KEY = 'nexus_user_history';
+const HISTORY_KEY = 'nova_node_user_history';
 
 interface UserHistory {
   viewedProducts: string[];

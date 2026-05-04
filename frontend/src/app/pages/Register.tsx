@@ -65,7 +65,7 @@ export function Register() {
               <div className="absolute inset-0 bg-primary opacity-50 blur-md rounded-full group-hover:opacity-100 transition-opacity"></div>
               <Package className="w-10 h-10 sm:w-12 sm:h-12 text-white relative z-10" />
             </div>
-            <span className="text-2xl sm:text-3xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">NEXUS</span>
+            <span className="text-2xl sm:text-3xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">NOVA NODE</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-2 tracking-tight">{t('register.title')}</h1>
           <p className="text-sm text-muted-foreground font-medium">{t('register.subtitle')}</p>
@@ -91,7 +91,7 @@ export function Register() {
               <Input
                 id="email"
                 type="email"
-                placeholder="unit@nexus-prime.net"
+                placeholder="unit@nova-node-prime.net"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -151,7 +151,7 @@ export function Register() {
                   <Input
                     id="storeName"
                     type="text"
-                    placeholder="Nexus Armory"
+                    placeholder="Nova Node Armory"
                     value={storeName}
                     onChange={(e) => setStoreName(e.target.value)}
                     required={role === 'vendor'}

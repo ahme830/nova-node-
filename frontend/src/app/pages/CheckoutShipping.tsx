@@ -29,7 +29,7 @@ export function CheckoutShipping() {
       icon: Truck,
     },
     {
-      id: 'nexus_prime',
+      id: 'nova_node_prime',
       name: t('checkout.nexusPrimeInstant'),
       desc: t('checkout.nexusPrimeInstantDesc'),
       price: 3500,
