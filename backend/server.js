@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 5001;
 // Configuration CORS unifiée
 app.use(cors({
     origin: '*', // Accepts requests from any origin (including your Live Server)
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'] // Explicitly allows your JWT token header!
 }));
 
@@ -41,6 +41,10 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   console.log(' ROOT ROUTE HIT');
   res.send("Backend is working");
+});
+
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "ok", service: "nova-node-api" });
 });
 
 app.use("/api/auth", (req, res, next) => {
@@ -104,7 +108,11 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(` Server running on http://localhost:${PORT}`);
-  console.log(' Debug mode: ACTIVE');
-});
+if (require.main === module) {
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(` Server running on http://0.0.0.0:${PORT}`);
+    console.log(' Debug mode: ACTIVE');
+  });
+}
+
+module.exports = app;
