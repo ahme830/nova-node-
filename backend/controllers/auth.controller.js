@@ -1,5 +1,18 @@
-
+const { createClient } = require("@supabase/supabase-js");
 const supabase = require("../db");
+
+function createAuthClient() {
+  return createClient(
+    process.env.SUPABASE_URL?.trim(),
+    (process.env.SUPABASE_ANON_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY)?.trim(),
+    {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    }
+  );
+}
 
 exports.registerUser = async (req, res) => {
   try {
@@ -17,11 +30,12 @@ exports.registerUser = async (req, res) => {
       return res.status(400).json({ error: "Invalid role" });
     }
 
-    const { data, error: authError } = await supabase.auth.signUp({
+    const authClient = createAuthClient();
+    const { data, error: authError } = await authClient.auth.signUp({
       email,
       password,
       options: {
-        data: { nom_utilisateur: username } 
+        data: { nom_utilisateur: username }
       }
     });
 
@@ -46,11 +60,9 @@ exports.registerUser = async (req, res) => {
           id_vendeur: user.id,
           statut: "nonValide"
         }]);
-      
+
       if (magasinError) {
         console.error("Store Creation Error:", magasinError);
-        // We don't rollback the user creation here as it's complex with Supabase Auth, 
-        // but the user will be a vendor without a store, which they can fix later.
       }
     }
 
@@ -86,7 +98,8 @@ exports.signInUser = async (req, res) => {
       return res.status(400).json({ error: "Email and password are required" });
     }
 
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    const authClient = createAuthClient();
+    const { data, error } = await authClient.auth.signInWithPassword({ email, password });
 
     if (error) return res.status(400).json({ error: error.message });
 
@@ -115,11 +128,6 @@ exports.signInUser = async (req, res) => {
 
 exports.signOutUser = async (req, res) => {
   try {
-    // Standard sign out for the current user session
-    const { error } = await supabase.auth.signOut();
- 
-    if (error) return res.status(400).json({ error: error.message });
- 
     res.status(200).json({ message: "Signed out successfully" });
   } catch (err) {
     res.status(500).json({ error: err.message });

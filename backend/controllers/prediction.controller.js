@@ -2,10 +2,13 @@
 // Uses Node 22 native fetch — no axios, no extra dependencies
 const supabase = require("../db");
 
-const ML_SERVICE_URL = process.env.ML_SERVICE_URL || "http://localhost:5001";
+const ML_SERVICE_URL = process.env.ML_SERVICE_URL ? process.env.ML_SERVICE_URL.trim() : "";
 
 // ─── HELPER — call the Python ML service ────────────────────────────────────
 async function callML(path, body, timeoutMs = 30000) {
+  if (!ML_SERVICE_URL) {
+    throw Object.assign(new Error("ML service indisponible"), { code: "ECONNREFUSED" });
+  }
   let res;
   try {
     res = await fetch(`${ML_SERVICE_URL}${path}`, {

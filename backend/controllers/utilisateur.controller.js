@@ -81,12 +81,17 @@ exports.updateUtilisateur = async (req, res) => {
 
     // Handle file upload from multipart/form-data
     if (req.file) {
-      photo_url = req.file.path;
+      photo_url = req.file.secure_url || req.file.path;
     }
+
+    const updateFields = {};
+    if (nom_utilisateur !== undefined) updateFields.nom_utilisateur = nom_utilisateur;
+    if (email !== undefined) updateFields.email = email;
+    if (photo_url !== undefined) updateFields.photo_url = photo_url;
 
     const { data, error } = await supabase
       .from("utilisateur")
-      .update({ nom_utilisateur, email, photo_url })
+      .update(updateFields)
       .eq("id", id)
       .select()
       .single();
@@ -132,12 +137,12 @@ exports.deleteUtilisateur = async (req, res) => {
     }
 
     // 2. Clear user-specific data from other tables
-    await supabase.from("item").delete().eq("id_utilisateur", id); // from carts
-    await supabase.from("panier").delete().eq("id_utilisateur", id);
-    await supabase.from("favoriser").delete().eq("id_utilisateur", id);
-    await supabase.from("avis").delete().eq("id_utilisateur", id);
-    await supabase.from("signalement").delete().eq("id_utilisateur", id);
-    await supabase.from("adresse").delete().eq("id_utilisateur", id);
+    await supabase.from("item").delete().eq("id_panier", id);
+    await supabase.from("panier").delete().eq("id_client", id);
+    await supabase.from("favoriser").delete().eq("id_client", id);
+    await supabase.from("avis").delete().eq("id_client", id);
+    await supabase.from("signalement").delete().eq("id_client", id);
+    await supabase.from("adresse").delete().eq("id_client", id);
 
     // 3. Clear role-specific tables
     await supabase.from("client").delete().eq("id", id);

@@ -1,10 +1,10 @@
 
 const supabase = require("../db");
-const cloudinary = require("../config/cloudinary");
 const { createClient } = require("@supabase/supabase-js");
 const supabaseAdmin = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY 
+  process.env.SUPABASE_URL || "https://placeholder.supabase.co",
+  process.env.SUPABASE_SERVICE_ROLE_KEY || "placeholder",
+  { auth: { autoRefreshToken: false, persistSession: false } }
 );
 exports.uploadProfilePicture = async (req, res) => {
   try {
@@ -12,27 +12,15 @@ exports.uploadProfilePicture = async (req, res) => {
       return res.status(400).json({ error: "No file uploaded" });
     }
 
-    // Upload buffer to Cloudinary via upload_stream
-    const uploadResult = await new Promise((resolve, reject) => {
-      const stream = cloudinary.uploader.upload_stream(
-        {
-          folder: "profile_pictures",
-          public_id: `user_${req.user.id}`, // one file per user, auto-overwrites
-          overwrite: true,
-          transformation: [{ width: 300, height: 300, crop: "fill", gravity: "face" }],
-        },
-        (error, result) => {
-          if (error) reject(error);
-          else resolve(result);
-        }
-      );
-      stream.end(req.file.buffer);
-    });
+    const photoUrl = req.file.secure_url || req.file.path;
+    if (!photoUrl) {
+      return res.status(500).json({ error: "Failed to resolve uploaded image URL" });
+    }
 
     // Save the returned URL to the utilisateur table
     const { data, error } = await supabase
       .from("utilisateur")
-      .update({ photo_url: uploadResult.secure_url })
+      .update({ photo_url: photoUrl })
       .eq("id", req.user.id)
       .select("photo_url")
       .single();
@@ -240,9 +228,7 @@ exports.updateProfile = async (req, res) => {
       return res.status(400).json({ error: "Password must be at least 6 characters" });
     }
 
-    // Use updateUser instead of auth.admin.updateUserById
-    // This uses the user's current session to perform the update
-    const { error } = await supabase.auth.updateUser({
+    const { error } = await supabaseAdmin.auth.admin.updateUserById(req.user.id, {
       password: new_password
     });
 
